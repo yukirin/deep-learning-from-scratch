@@ -27,17 +27,17 @@ for i in range(hidden_layer_size):
         x = activations[i - 1]
 
     # 初期値の値をいろいろ変えて実験しよう！
-    w = np.random.randn(node_num, node_num) * 1
+    # w = np.random.randn(node_num, node_num) * 1
     # w = np.random.randn(node_num, node_num) * 0
     # w = np.random.randn(node_num, node_num) * 0.01
     # w = np.random.randn(node_num, node_num) * np.sqrt(1.0 / node_num)
-    # w = np.random.randn(node_num, node_num) * np.sqrt(2.0 / node_num)
+    w = np.random.randn(node_num, node_num) * np.sqrt(2.0 / node_num)
 
     a = np.dot(x, w)
 
     # 活性化関数の種類も変えて実験しよう！
-    z = sigmoid(a)
-    # z = ReLU(a)
+    # z = sigmoid(a)
+    z = ReLU(a)
     # z = tanh(a)
 
     activations[i] = z

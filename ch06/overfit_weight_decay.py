@@ -16,12 +16,13 @@ x_train = x_train[:300]
 t_train = t_train[:300]
 
 # weight decay（荷重減衰）の設定 =======================
-#weight_decay_lambda = 0 # weight decayを使用しない場合
+# weight_decay_lambda = 0 # weight decayを使用しない場合
 weight_decay_lambda = 0.1
 # ====================================================
 
-network = MultiLayerNet(input_size=784, hidden_size_list=[100, 100, 100, 100, 100, 100], output_size=10,
-                        weight_decay_lambda=weight_decay_lambda)
+network = MultiLayerNet(
+    input_size=784, hidden_size_list=[100, 100, 100, 100, 100, 100], output_size=10,
+    weight_decay_lambda=weight_decay_lambda)
 optimizer = SGD(lr=0.01)
 
 max_epochs = 201
@@ -49,7 +50,8 @@ for i in range(1000000000):
         train_acc_list.append(train_acc)
         test_acc_list.append(test_acc)
 
-        print("epoch:" + str(epoch_cnt) + ", train acc:" + str(train_acc) + ", test acc:" + str(test_acc))
+        print("epoch:" + str(epoch_cnt) +
+              ", train acc:" + str(train_acc) + ", test acc:" + str(test_acc))
 
         epoch_cnt += 1
         if epoch_cnt >= max_epochs:
